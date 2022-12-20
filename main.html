@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Schriftfarbe ändern</title>
+  </head>
+  <body>
+    <h1 id="myHeading">Meine Überschrift</h1>
+    <script>
+      setInterval(function() {
+        var heading = document.getElementById("myHeading");
+        var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var currentColor = heading.style.color;
+        var currentIndex = colors.indexOf(currentColor);
+        if (currentIndex === -1 || currentIndex === colors.length - 1) {
+          heading.style.color = colors[0];
+        } else {
+          heading.style.color = colors[currentIndex + 1];
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
+
