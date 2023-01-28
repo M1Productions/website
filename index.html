@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 
-    <div class="container box" onkeyup="mainFunc()">
+    <div class="container box">
       <div class="row">
         <div class="col center">
           <img src="https://static.wikia.nocookie.net/gensin-impact/images/2/2a/Genshin-Impact-Logo.png/" height="100" width="264" style="image-resolution: 300dppx;">
@@ -28,7 +28,7 @@
                 <span>Character Level</span>
               </div>
               <div class="form-group mx-sm-3 col-xs-2 mb-2">
-                <input type="text" class="form-control number input_box" id="cha_lv" value="90" onchange="mainFunc()">
+                <input type="text" class="form-control number input_box" id="cha_lv" value="90">
               </div>
             </form>
             <!-- ATK Power input-->
@@ -180,7 +180,7 @@
             </form>
           </div>
           <div class="col">
-            <input type="button" class="btn btn-secondary" value="Reset" onclick="reset()">
+            <input type="button" class="btn btn-secondary" id="reset" value="Reset">
           </div>
           <div>
             <h4>Notes</h4>

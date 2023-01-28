@@ -1,9 +1,8 @@
 window.onload = function () { mainFunc(); }
 $("input").change(function () {
-  console.log("Hallo Welt");
+  mainFunc();  
 });
-
-function reset() {
+$("#reset").click(function(){
   document.getElementById("cha_lv").value = "90";
   document.getElementById("atk_p").value = "0";
   document.getElementById("tal_a").value = "0";
@@ -21,7 +20,7 @@ function reset() {
   document.getElementById("e_res_d").value = "0";
   document.getElementById("e_dmg_red").value = "0";
   mainFunc();
-}
+});
 
 function mainFunc(){  
   chknum("cha_lv",90);
