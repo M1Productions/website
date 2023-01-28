@@ -2,6 +2,7 @@ window.onload = function () { mainFunc(); }
 $("input").change(function () {
   mainFunc();  
 });
+//
 $("#reset").click(function(){
   document.getElementById("cha_lv").value = "90";
   document.getElementById("atk_p").value = "0";
