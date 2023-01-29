@@ -24,11 +24,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script></script>
 
-    <div class="container box" onkeyup="mainFunc()">
+    <div class="container box">
       <div class="row">
         <div class="col center">
-          <img src="https://static.wikia.nocookie.net/gensin-impact/images/2/2a/Genshin-Impact-Logo.png/" alt="Genshin Impact" height="100" width="264" style="image-resolution: 300dppx;">
+          <img src="./Genshin-Impact-Logo.png" alt="Genshin Impact" height="100" width="264" style="image-resolution: 300dppx;">
           <h3>Elemental Reaction Damage Calculator<br></h3>
           <h6>Updated version of <a href="https://codepen.io/shinu_keiya/full/vYGaEmy" target="_blank">Keiyaku's Element Reaction Damage Calculator</a></h6>
         </div>
@@ -52,7 +53,7 @@
                 <span>Total ATK/HP/EM/DEF<a href="#footnote_1"><sup>[1]</sup></a></span>
               </div>
               <div class="form-group mx-sm-3 mb-2 ">
-                <input type="text" class="form-control number input_box" id="atk_p" value="0">
+                <input type="text" class="form-control number input_box" id="atk_p" value="0" onchange="mainFunc()">
               </div>
             </form>
             <!-- Talent ATK input-->
@@ -61,7 +62,7 @@
                 <span>Motion Value</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="tal_a" value="0">%
+                <input type="text" class="form-control number input_box" id="tal_a" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Talent ATK input-->
@@ -70,7 +71,7 @@
                 <span>Special Multiplier Bonus<a href="#footnote_2"><sup>[2]</sup></a></span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="spec_mul" value="0">%
+                <input type="text" class="form-control number input_box" id="spec_mul" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Ele. Mastery input-->
@@ -79,7 +80,7 @@
                 <span>Elemental Mastery</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="ele_mas" value="0">
+                <input type="text" class="form-control number input_box" id="ele_mas" value="0" onchange="mainFunc()">
               </div>
             </form>
             <!-- Ele. Bonus input-->
@@ -88,7 +89,7 @@
                 <span>Elemental Damage Bonus</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="ele_b" value="0">%
+                <input type="text" class="form-control number input_box" id="ele_b" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Dmg. Bonus input-->
@@ -97,7 +98,7 @@
                 <span>Damage Bonus</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="dmg_b" value="0">%
+                <input type="text" class="form-control number input_box" id="dmg_b" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Flat Dmg. Bonus input-->
@@ -106,7 +107,7 @@
                 <span>Flat Damage Bonus</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="flat_dmg_b" value="0">
+                <input type="text" class="form-control number input_box" id="flat_dmg_b" value="0" onchange="mainFunc()">
               </div>
             </form>
             <!-- Reaction Bonus input-->
@@ -115,7 +116,7 @@
                 <span>Reaction Bonus</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="re_b" value="0">%
+                <input type="text" class="form-control number input_box" id="re_b" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- DEF Reduction input-->
@@ -124,7 +125,7 @@
                 <span>DEF Reduction<a href="#footnote_3"><sup>[3]</sup></a></span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="def_red" value="0">%
+                <input type="text" class="form-control number input_box" id="def_red" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- DEF Ignore input-->
@@ -133,7 +134,7 @@
                 <span>DEF Ignore</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="def_ignore" value="0">%
+                <input type="text" class="form-control number input_box" id="def_ignore" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Critical Dmg. input-->
@@ -142,7 +143,7 @@
                 <span>Crit Damage</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="text" class="form-control number input_box" id="cri_dmg" value="50">%
+                <input type="text" class="form-control number input_box" id="cri_dmg" value="50" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Critical Attack input-->
@@ -151,7 +152,7 @@
                 <span>Crit Hit</span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
-                <input type="checkbox" class="number input_box" id="cri_chk" value="1">
+                <input type="checkbox" class="number input_box" id="cri_chk" value="1" onchange="mainFunc()">
               </div>
             </form>
           </div>
@@ -163,7 +164,7 @@
                 <span>Enemy Level</span>
               </div>
               <div class="form-group mx-sm-3 mb-2 ">
-                <input type="text" class="form-control number input_box" id="e_lv" value="90">
+                <input type="text" class="form-control number input_box" id="e_lv" value="90" onchange="mainFunc()">
               </div>
             </form>
             <!-- Enemy Res input-->
@@ -172,7 +173,7 @@
                 <span>Enemy Ele. Res.</span>
               </div>
               <div class="form-group mx-sm-3 mb-2 ">
-                <input type="text" class="form-control number input_box" id="e_res" value="10">%
+                <input type="text" class="form-control number input_box" id="e_res" value="10" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Enemy Res Down input-->
@@ -181,7 +182,7 @@
                 <span>Enemy Res. Reduction</span>
               </div>
               <div class="form-group mx-sm-3 mb-2 ">
-                <input type="text" class="form-control number input_box" id="e_res_d" value="0">%
+                <input type="text" class="form-control number input_box" id="e_res_d" value="0" onchange="mainFunc()">%
               </div>
             </form>
             <!-- Enemy Res input-->
@@ -190,7 +191,7 @@
                 <span>Enemy Damage Reduction</span>
               </div>
               <div class="form-group mx-sm-3 mb-2 ">
-                <input type="text" class="form-control number input_box" id="e_dmg_red" value="0">%
+                <input type="text" class="form-control number input_box" id="e_dmg_red" value="0" onchange="mainFunc()">%
               </div>
             </form>
           </div>
