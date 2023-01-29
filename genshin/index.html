@@ -39,7 +39,7 @@
           <h4>Character</h4>
           <div class="col">
             <!-- Character Level input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Character Level</span>
               </div>
@@ -48,7 +48,7 @@
               </div>
             </form>
             <!-- ATK Power input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Total ATK/HP/EM/DEF<a href="#footnote_1"><sup>[1]</sup></a></span>
               </div>
@@ -57,7 +57,7 @@
               </div>
             </form>
             <!-- Talent ATK input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Motion Value</span>
               </div>
@@ -66,7 +66,7 @@
               </div>
             </form>
             <!-- Talent ATK input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Special Multiplier Bonus<a href="#footnote_2"><sup>[2]</sup></a></span>
               </div>
@@ -75,7 +75,7 @@
               </div>
             </form>
             <!-- Ele. Mastery input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Elemental Mastery</span>
               </div>
@@ -84,7 +84,7 @@
               </div>
             </form>
             <!-- Ele. Bonus input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Elemental Damage Bonus</span>
               </div>
@@ -93,7 +93,7 @@
               </div>
             </form>
             <!-- Dmg. Bonus input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Damage Bonus</span>
               </div>
@@ -102,7 +102,7 @@
               </div>
             </form>
             <!-- Flat Dmg. Bonus input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Flat Damage Bonus</span>
               </div>
@@ -111,7 +111,7 @@
               </div>
             </form>
             <!-- Reaction Bonus input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Reaction Bonus</span>
               </div>
@@ -120,7 +120,7 @@
               </div>
             </form>
             <!-- DEF Reduction input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>DEF Reduction<a href="#footnote_3"><sup>[3]</sup></a></span>
               </div>
@@ -129,7 +129,7 @@
               </div>
             </form>
             <!-- DEF Ignore input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>DEF Ignore</span>
               </div>
@@ -138,7 +138,7 @@
               </div>
             </form>
             <!-- Critical Dmg. input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Crit Damage</span>
               </div>
@@ -147,7 +147,7 @@
               </div>
             </form>
             <!-- Critical Attack input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Crit Hit</span>
               </div>
@@ -159,7 +159,7 @@
           <h4>Enemy</h4>
           <div class="col">
             <!-- Enemy level input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Enemy Level</span>
               </div>
@@ -168,7 +168,7 @@
               </div>
             </form>
             <!-- Enemy Res input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Enemy Ele. Res.</span>
               </div>
@@ -177,7 +177,7 @@
               </div>
             </form>
             <!-- Enemy Res Down input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Enemy Res. Reduction</span>
               </div>
@@ -186,7 +186,7 @@
               </div>
             </form>
             <!-- Enemy Res input-->
-            <form class="form-inline">
+            <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
                 <span>Enemy Damage Reduction</span>
               </div>
@@ -204,7 +204,9 @@
               <sup>[1]</sup><small>Whichever stat the talent of the attack multiplies with.</small>
             </div>
             <div id="footnote_2" class="col">
-              <sup>[2]</sup><small>Note that the Normal Attack buff from Yoimiya's Elemental Skill "Niwabi Fire-Dance" is multiplicative and not additive. The calculator assumes additive values in Special Multiplier Bonus so just remove 100% from Yoimiya's Talent Stat.</small>
+              <sup>[2]</sup><small>Note that the Normal Attack buff from Yoimiya's Elemental Skill "Niwabi Fire-Dance" is a percentage directly multiplied with her
+                  Normal Attack base damage. However, the calculator assumes a percentage to be <u>added</u> to the base damage in Special Multiplier <u>Bonus</u> so
+                  subtract 100% from Yoimiya's Normal Attack buff from her skill.</small>
             </div>
             <div id="footnote_3" class="col">
               <sup>[3]</sup><small>DEF Reduction is internally hard capped at 90%. See <a href="https://library.keqingmains.com/evidence/combat-mechanics/damage/damage-formula#defense-shred-is-hard-capped-at-90" target ="_blank">KQM's Evidence Vault</a> for futher information.</small>
@@ -277,7 +279,7 @@
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png" class="thum">
             +
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" class="thum">
-            = <span id="frozen">0</span> <span>Shattered (Physical Damage)<br><small>(Hitting an enemy with a blunt attack.)</small></span>
+            = <span id="frozen">0</span> <span>Physical Damage (Shattered)</span>
           </div>
           <!-- Swirl -->
           <span class="swirl">Swirl</span>
