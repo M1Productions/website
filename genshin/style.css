@@ -12,11 +12,9 @@ a:visited {
   color: #ad0fda;
 }
 
-.navbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
+a::selection{
+  color: #ad0fda;
+  background-color: #0078d7;
 }
 
 body {
@@ -24,6 +22,12 @@ body {
   color: #eeeeee;
   background-color: #121212;
 }
+
+body::selection {
+  color: #eeeeee;
+  background-color: #0078d7;
+}
+
 .input_box{
   background-color: #eeeeee;
 }
@@ -50,6 +54,22 @@ small{
   width:32px;
   height:32px;
 }
+
+.reactionless {
+  color: #eeeeee;
+  font-size: 24px;
+  text-shadow: 
+    -1px -1px 0 #a8a8a8,
+    1px -1px 0 #a8a8a8,
+    -1px 1px 0 #a8a8a8,
+    1px 1px 0 #a8a8a8;
+}
+
+.reactionless::selection{
+  color: #eeeeee;
+  background-color: #0078d7;
+}
+
 .vapo {
   color: #fcc963;
   font-size: 24px;
@@ -59,6 +79,12 @@ small{
     -1px 1px 0 #AA5A49,
     1px 1px 0 #AA5A49;
 }
+
+.vapo::selection{
+  color: #fcc963;
+  background-color: #0078d7;
+}
+
 .melt {
   color: #fbcd63;
   font-size: 24px;
@@ -67,6 +93,11 @@ small{
     1px -1px 0 #9F5343,
     -1px 1px 0 #9F5343,
     1px 1px 0 #9F5343;
+}
+
+.melt::selection{
+  color: #fbcd63;
+  background-color: #0078d7;
 }
 .overl {
   color: #f9809a;
@@ -77,6 +108,10 @@ small{
     -1px 1px 0 #A93A4B,
     1px 1px 0 #A93A4B;
 }
+.overl::selection{
+  color: #f9809a;
+  background-color: #0078d7;
+}
 .elecharge {
   color: #e19aff;
   font-size: 24px;
@@ -85,6 +120,10 @@ small{
     1px -1px 0 #883493,
     -1px 1px 0 #883493,
     1px 1px 0 #883493;
+}
+.elecharge::selection{
+  color: #e19aff;
+  background-color: #0078d7;
 }
 .supcon {
   color: #D4ACFF;
@@ -95,6 +134,10 @@ small{
     -1px 1px 0 #786290,
     1px 1px 0 #786290;
 }
+.supcon::selection{
+  color: #D4ACFF;
+  background-color: #0078d7;
+}
 .forzen {
   color: #96fdff;
   font-size: 24px;
@@ -104,6 +147,10 @@ small{
     -1px 1px 0 #73A1B5,
     1px 1px 0 #73A1B5;
 }
+.forzen::selection{
+  color: #96fdff;
+  background-color: #0078d7;
+}
 .swirl {
   color: #65fdce;
   font-size: 24px;
@@ -112,6 +159,10 @@ small{
     1px -1px 0 #66A792,
     -1px 1px 0 #66A792,
     1px 1px 0 #66A792;
+}
+.swirl::selection{
+  color: #65fdce;
+  background-color: #0078d7;
 }
 
 .bloom{
@@ -123,6 +174,10 @@ small{
     -1px 1px 0 #26a051,
     1px 1px 0 #00ea52;
 }
+.bloom::selection{
+  color: #00ea52;
+  background-color: #0078d7;
+}
 
 .burgeon{
   color: #fe9b09;
@@ -133,20 +188,44 @@ small{
     -1px 1px 0 #a26d1f,
     1px 1px 0 #a26d1f;
 }
+.burgeon::selection{
+  color: #fe9b09;
+  background-color: #0078d7;
+}
 
 .fire{
   color: #ff9c00;
 }
+.fire::selection{
+  color: #ff9c00;
+  background-color: #0078d7;
+}
 .water{
   color: #32cbff;
+}
+.water::selection{
+  color: #32cbff;
+  background-color: #0078d7;
 }
 .ice{
   color: #97ffff;
 }
+.ice::selection{
+  color: #97ffff;
+  background-color: #0078d7;
+}
 .elec{
   color: #e09bff;
+}
+.elec::selection{
+  color: #e09bff;
+  background-color: #0078d7;
 }
 
 .dendro{
   color: #00ea52;
+}
+.dendro::selection{
+  color: #00ea52;
+  background-color: #0078d7;
 }

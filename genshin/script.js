@@ -196,6 +196,8 @@ function mainFunc(){
   frozen(em_mas,level_multiplier[cha_lv],re_b/100,res_multiplier);
   swirl(em_mas,level_multiplier[cha_lv],re_b/100,res_multiplier);
   
+  document.getElementById("normal").innerHTML = dmg.toFixed(0);
+
   // Burning
   var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier;
   document.getElementById("burn").innerHTML = burning_dmg.toFixed(0);
