@@ -1,0 +1,85 @@
+.body {
+  background-color: #DFDDDA;
+}
+
+.content {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.headder {
+  background-color: #202225;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  font-size: 30px;
+  color: #DFDDDA;
+}
+
+.mainPart {
+  overflow-y: scroll;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.link {
+  margin: auto;
+}
+.link a:hover {
+  background-color: #DFDDDA;
+  color: #202225;
+}
+
+a {
+  color: #DFDDDA;
+  text-decoration: none;
+}
+
+.footnote {
+  position: fixed;
+  background-color: #202225;
+  color: #FFD700;
+  bottom: 0;
+  width: 100%;
+  font-size: 30px;
+  display: flex;
+}
+
+.copyright {
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+
+.contactLogo {
+  height: 50px;
+  width: 50px;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  color: #FFD700;
+}
+
+.spaced {
+  margin: auto;
+}
+.spaced a:hover {
+  background-color: #FFD700;
+  color: #202225;
+}

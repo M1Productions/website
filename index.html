@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="icon" type="x-icon" href="favicon.ico">
-    <title>HomeDE</title>
-    <link rel="stylesheet" href="home.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="content.js"></script>
+
+    <title>M1Productions</title>
+
+    <meta charset="UTF-8">
+    <meta name="keywords" content="M1, productions">
+    <meta name="description" content="Homepage of M1Productions">
+    <meta name="author" content="Felix Dook">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">#
   </head>
 
-
-  <div class="basicLayout" id="topAlign">
-    <div class="basicText" id="navigation">
-
-      <!-- <img src="logoM1PRODUCTIONSdark.png" alt="M1Productions-Logo">&nbsp;
-      <a href="index.html">Home</a> &nbsp; | &nbsp; -->
-      
-      <a href="index.html"><img src="logoM1PRODUCTIONSdark.png" alt="M1Productions-Logo" style="width:42px;height:42px;"></a>
-      &nbsp; | &nbsp;
-      
-      <div>
-        <a href="newsDE.html">News</a> &nbsp; | &nbsp;
-        <a href="bibliothekDE.html">Bibliothek</a> &nbsp; | &nbsp;
-        <a href="ueberUnsDE.html">Über uns</a> &nbsp;&nbsp;&nbsp;
+  <body class="body">
+    <div class="content">
+      <div class="headder">
+        <div class="navigation">
+          <div>
+            <a href="index.html">
+              <img src="logoM1PRODUCTIONSdark.png" alt="M1Productions-Logo" class="logo">
+            </a>
+          </div>
+          <div class="link">
+            <a href="index.html">
+              news
+            </a>
+          </div>
+          |
+          <div class="link">
+            <a href="index.html">
+              library
+            </a>
+          </div>
+          |
+          <div class="link">
+            <a href="index.html"> <!-- this has to activate a <script that loads the content in the right language -->
+              about us
+            </a>
+          </div>
+        </div>
       </div>
 
-
-      <div>
-    		<form method="get" action="http://www.duckduckgo.com/">
-    		    <input class="searchField" type="text" name="q" size="21" maxlength="120" placeholder="duckduckgo.com">
-    		</form>
-      </div> &nbsp;&nbsp;&nbsp;
-      <!-- alternative, better variant to search on our website instead of duckduckgo but first we have to stup a search engine -->
-      <!--<div class="search">
-          <form action="#">
-              <input type="text"
-                  placeholder="Suchen..."
-                  name="search">
-          </form>
-      </div>-->
-
-      <div>
-        <select name="Language" id="language" onchange="location = this.value;">
-          <option value="index.html">DE</option>
-          <option value="homeEN.html">EN</option>
-        </select>
+      <div class="mainPart">
+        zyxwv
       </div>
 
-    </div>
-  </div>
-
-  *hidden Content*
-
-  <div class="basicLayout" id="bottomAlign">
-    <div class="basicText" id="footnote">
-      <a href="index.html" id="footnote">M1Productions, 2021</a> &nbsp; | &nbsp;
-      <img src="telegram.png" alt="telegram"><a href="https://t.me/m1productions" id="footnote">@M1Productions</a> &nbsp; | &nbsp;
-      <img src="discord.png" alt="discord"><a href="https://discord.gg/beHv4GeC3v" id="footnote"> M1Productions</a>
-    </div>
-  </div>
-
-
-  <body>
-    <div class="teaser" id="newsTeaser">
-      <a href="newsDE.html" id="navigation"> News-Teaser </a>
-    </div>
-    <div class="teaser" id="gamesTeaser">
-      <a href="bibliothekDE.html" id="navigation"> games-Teaser </a>
-    </div>
-    <div class="teaser" id="socialTeaser">
-      social-media-Teaser
+      <div class="footnote">
+        <div class="copyright">
+          &copy; M1Productions 2023
+        </div>
+        <div class="contact">
+          <div class="spaced">
+            <a href="https://t.me/m1productions" class="contactLink">
+              <div>
+                <img src="telegram.png" alt="telegram-link" class="contactLogo">
+              </div>
+              <div>
+                @M1Productions
+              </div>
+            </a>
+          </div>
+          |
+          <div class="spaced">
+            <a href="https://discord.gg/beHv4GeC3v" class="contactLink">
+              <div>
+                <img src="discord.png" alt="discord-link" class="contactLogo">
+              </div>
+              <div>
+                M1Productions
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
-
 </html>
