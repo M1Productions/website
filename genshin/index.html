@@ -137,34 +137,23 @@
                 <input type="text" class="form-control number input_box" id="def_ignore" value="0" onchange="mainFunc()">%
               </div>
             </form>
+            <!-- Crit Rate input-->
+            <form class="form-inline" onsubmit="return false;">
+              <div class="form-group mb-2">
+                <span>Crit Rate<a href="#footnote_4"><sup>[4]</sup></a></span>
+              </div>
+              <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control number input_box" id="cri_rate" value="5" onchange="mainFunc()">%
+              </div>
+            </form>
             <!-- Critical Dmg. input-->
             <form class="form-inline" onsubmit="return false;">
               <div class="form-group mb-2">
-                <span>Crit Damage</span>
+                <span>Crit Damage<a href="#footnote_4"><sup>[4]</sup></a></span>
               </div>
               <div class="form-group mx-sm-3 mb-2">
                 <input type="text" class="form-control number input_box" id="cri_dmg" value="50" onchange="mainFunc()">%
               </div>
-            </form>
-
-            <form class="form-inline" onsubmit="return false;">
-
-              <!-- Critical Attack input-->
-              <div class="form-group mb-2">
-                <span>Crit Hit</span>
-              </div>
-              <div class="form-group mx-sm-3 mb-2">
-                <input type="checkbox" class="number input_box" id="cri_chk" value="1" onchange="mainFunc()">
-              </div>
-  
-              <!-- Nahida Crit-->
-              <div class="form-group mb-2" style="margin-left: 20px;">
-                <span>Nahida Crit Hit</span>
-              </div>
-              <div class="form-group mx-sm-3 mb-2">
-                <input type="checkbox" class="number input_box" id="nahida_cri_chk" value="1" onchange="mainFunc()">
-              </div>
-  
             </form>
 
           </div>
@@ -223,6 +212,12 @@
             </div>
             <div id="footnote_3" class="col">
               <sup>[3]</sup><small>DEF Reduction is internally hard capped at 90%. See <a href="https://library.keqingmains.com/evidence/combat-mechanics/damage/damage-formula#defense-shred-is-hard-capped-at-90" target ="_blank">KQM's Evidence Vault</a> for futher information.</small>
+            </div>
+            <div id="footnote_4" class="col">
+              <sup>[4]</sup><small>The calculator always shows average damage numbers. To only see non-crit damage or crit damage, adjust the crit rate accordingly.
+                  Note that to account for Nahida's Constellation 2 "The Root of All Fullness", Burning, Bloom, Hyperbloom and Burgeon all also use crit
+                  values for calculation so adjust these values accordingly.
+              </small>
             </div>
           </div>
         </div>
@@ -312,13 +307,13 @@
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png" class="thum">
             >
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
-            = <span id="swirlI" class="ice">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
+            = <span id="swirlE" class="elec">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
           </div>
           <div class="col">
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png" class="thum">
             >
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" class="thum">
-            = <span id="swirlE" class="elec">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" class="thum">
+            = <span id="swirlI" class="ice">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png" class="thum">
           </div>
           <!-- Burning -->
           <span class="burgeon">Burning</span>
@@ -327,24 +322,6 @@
             +
             <img src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png" class="thum">
             = <span id="burn" class="fire">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png" class="thum">
-          </div>
-          <!-- Spread -->
-          <span class="bloom">Spread</span>
-          <div class="col">
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
-            >
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
-            = <span id="spread" class="dendro">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
-          </div>
-          <!-- Aggravate -->
-          <span class="elecharge">Aggravate</span>
-          <div class="col">
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
-            >
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
-            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
-            = <span id="aggravate" class="elec">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
           </div>
           <!-- Bloom -->
           <span class="bloom">Bloom</span>
@@ -373,6 +350,24 @@
               <img src="https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png" class="thum">
               = <span id="burgeon" class="dendro">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
             </div>
+          </div>
+          <!-- Spread -->
+          <span class="bloom">Spread</span>
+          <div class="col">
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
+            >
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
+            = <span id="spread" class="dendro">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
+          </div>
+          <!-- Aggravate -->
+          <span class="elecharge">Aggravate</span>
+          <div class="col">
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
+            >
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Element_Dendro.png" class="thum">
+            <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
+            = <span id="aggravate" class="elec">0</span> <img src="https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png" class="thum">
           </div>
         </div>
       </div>

@@ -1,49 +1,4 @@
-window.onload = function () { mainFunc(); }
-$("input").change(function () {
-  console.log("Hallo Welt");
-});
-
-function reset() {
-  document.getElementById("cha_lv").value = "90";
-  document.getElementById("atk_p").value = "0";
-  document.getElementById("tal_a").value = "0";
-  document.getElementById("spec_mul").value = "0";
-  document.getElementById("ele_mas").value = "0";
-  document.getElementById("ele_b").value = "0";
-  document.getElementById("dmg_b").value = "0";
-  document.getElementById("flat_dmg_b").value = "0";
-  document.getElementById("re_b").value = "0";
-  document.getElementById("def_red").value = "0";
-  document.getElementById("def_ignore").value = "0";
-  document.getElementById("cri_dmg").value = "50";
-  document.getElementById("e_lv").value = "90";
-  document.getElementById("e_res").value = "10";
-  document.getElementById("e_res_d").value = "0";
-  document.getElementById("e_dmg_red").value = "0";
-  document.getElementById("cri_chk").checked = false;
-  document.getElementById("nahida_cri_chk").checked = false;
-  mainFunc();
-}
-
-function mainFunc(){  
-  chknum("cha_lv",1,90);
-  chknum("atk_p",1,0);
-  chknum("tal_a",1,0);
-  chknum("spec_mul",1,0);
-  chknum("ele_mas",1,0);
-  chknum("ele_b",1,0);
-  chknum("dmg_b",1,0);
-  chknum("flat_dmg_b",1,0);
-  chknum("re_b",1,0);
-  chknum("def_red",1,0);
-  chknum("def_ignore",1,0);
-  chknum("cri_dmg",50,50);
-  chknum("e_lv",1,90);
-  chknum("e_res",1,0);
-  chknum("e_res_d",1,0);
-  chknum("e_dmg_red",1,0);
-  
-  const level_multiplier = [
+const level_multiplier = [
   17.165605,
   18.535048,
   19.904854,
@@ -145,6 +100,51 @@ function mainFunc(){
   1972.864342,
   2030.071808
 ];
+
+window.onload = function () { mainFunc(); }
+$("input").change(function () {
+  console.log("Hallo Welt");
+});
+
+function reset() {
+  document.getElementById("cha_lv").value = "90";
+  document.getElementById("atk_p").value = "0";
+  document.getElementById("tal_a").value = "0";
+  document.getElementById("spec_mul").value = "0";
+  document.getElementById("ele_mas").value = "0";
+  document.getElementById("ele_b").value = "0";
+  document.getElementById("dmg_b").value = "0";
+  document.getElementById("flat_dmg_b").value = "0";
+  document.getElementById("re_b").value = "0";
+  document.getElementById("def_red").value = "0";
+  document.getElementById("def_ignore").value = "0";
+  document.getElementById("cri_rate").value = "5";
+  document.getElementById("cri_dmg").value = "50";
+  document.getElementById("e_lv").value = "90";
+  document.getElementById("e_res").value = "10";
+  document.getElementById("e_res_d").value = "0";
+  document.getElementById("e_dmg_red").value = "0";
+  mainFunc();
+}
+
+function mainFunc(){  
+  chknum("cha_lv",1,90);
+  chknum("atk_p",1,0);
+  chknum("tal_a",1,0);
+  chknum("spec_mul",1,0);
+  chknum("ele_mas",1,0);
+  chknum("ele_b",1,0);
+  chknum("dmg_b",1,0);
+  chknum("flat_dmg_b",1,0);
+  chknum("re_b",1,0);
+  chknum("def_red",1,0);
+  chknum("def_ignore",1,0);
+  chknum("cri_dmg",0,50);
+  chknum("cri_rate",0,5);
+  chknum("e_lv",1,90);
+  chknum("e_res",1,0);
+  chknum("e_res_d",1,0);
+  chknum("e_dmg_red",1,0);
  
   var atk_p = parseFloat($("#atk_p").val());
   var tal_a = parseFloat($("#tal_a").val());
@@ -156,26 +156,25 @@ function mainFunc(){
   var re_b = parseFloat($("#re_b").val());
   var def_red = parseFloat($("#def_red").val());
   var def_ignore = parseFloat($("#def_ignore").val());
+  var cri_rate = parseFloat($("#cri_rate").val());
   var cri_dmg = parseFloat($("#cri_dmg").val());
   var cha_lv = parseInt($("#cha_lv").val(), 10);
   var e_lv = parseFloat($("#e_lv").val());
   var e_res = parseFloat($("#e_res").val());
   var e_res_d = parseFloat($("#e_res_d").val());
   var e_dmg_red = parseFloat($("#e_dmg_red").val());
-
-  var nahida_crit_dmg = 100;
   
   cha_lv = cha_lv - 1;
+
+  if (cri_rate > 100){
+    cri_rate = 100;
+  }
   
   if (def_red > 90) {
     def_red = 90;
   }
 
-  if($('#cri_chk').is(":checked")){    
-  }else{ cri_dmg = 0;}
-
-  if($('#nahida_cri_chk').is(":checked")){    
-  }else{ nahida_crit_dmg = 0;}
+  var crit_multiplier = (cri_rate/100) * (cri_dmg/100);
   
   var base_dmg = atk_p * (tal_a/100);
   var res_multiplier = 1;
@@ -191,13 +190,13 @@ function mainFunc(){
   var s_flat_dmg_b = 1.25 * level_multiplier[cha_lv] * (1 + (5 * em_mas)/(1200 + em_mas) + re_b/100);
   var a_flat_dmg_b = 1.15 * level_multiplier[cha_lv] * (1 + (5 * em_mas)/(1200 + em_mas) + re_b/100);
   
-  var dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
-  var s_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+s_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
-  var a_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+a_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
+  var dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+crit_multiplier);
+  var s_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+s_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+crit_multiplier);
+  var a_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+a_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+crit_multiplier);
 
-  var bloom_dmg = 2 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + nahida_crit_dmg/100);
-  var subbloom_dmg = 3 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + nahida_crit_dmg/100);
-  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier * (1 + nahida_crit_dmg/100);
+  var bloom_dmg = 2 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + crit_multiplier);
+  var subbloom_dmg = 3 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + crit_multiplier);
+  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier * (1 + crit_multiplier);
   
   amplifying(em_mas,re_b,dmg);
   overloaded(em_mas,level_multiplier[cha_lv],re_b/100,res_multiplier);
