@@ -196,7 +196,7 @@ function mainFunc(){
 
   var bloom_dmg = 2 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + crit_multiplier);
   var subbloom_dmg = 3 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + crit_multiplier);
-  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier * (1 + crit_multiplier);
+  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + crit_multiplier);
   
   amplifying(em_mas,re_b,dmg);
   overloaded(em_mas,level_multiplier[cha_lv],re_b/100,res_multiplier);
