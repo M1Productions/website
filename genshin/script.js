@@ -20,26 +20,28 @@ function reset() {
   document.getElementById("e_res").value = "10";
   document.getElementById("e_res_d").value = "0";
   document.getElementById("e_dmg_red").value = "0";
+  document.getElementById("cri_chk").checked = false;
+  document.getElementById("nahida_cri_chk").checked = false;
   mainFunc();
 }
 
 function mainFunc(){  
-  chknum("cha_lv",90);
-  chknum("atk_p",0);
-  chknum("tal_a",0);
-  chknum("spec_mul",0);
-  chknum("ele_mas",0);
-  chknum("ele_b",0);
-  chknum("dmg_b",0);
-  chknum("flat_dmg_b",0);
-  chknum("re_b",0);
-  chknum("def_red",0);
-  chknum("def_ignore",0);
-  chkcri("cri_dmg",50);
-  chknum("e_lv",90);
-  chknum("e_res",0);
-  chknum("e_res_d",0);
-  chknum("e_dmg_red",0);
+  chknum("cha_lv",1,90);
+  chknum("atk_p",1,0);
+  chknum("tal_a",1,0);
+  chknum("spec_mul",1,0);
+  chknum("ele_mas",1,0);
+  chknum("ele_b",1,0);
+  chknum("dmg_b",1,0);
+  chknum("flat_dmg_b",1,0);
+  chknum("re_b",1,0);
+  chknum("def_red",1,0);
+  chknum("def_ignore",1,0);
+  chknum("cri_dmg",50,50);
+  chknum("e_lv",1,90);
+  chknum("e_res",1,0);
+  chknum("e_res_d",1,0);
+  chknum("e_dmg_red",1,0);
   
   const level_multiplier = [
   17.165605,
@@ -160,6 +162,8 @@ function mainFunc(){
   var e_res = parseFloat($("#e_res").val());
   var e_res_d = parseFloat($("#e_res_d").val());
   var e_dmg_red = parseFloat($("#e_dmg_red").val());
+
+  var nahida_crit_dmg = 100;
   
   cha_lv = cha_lv - 1;
   
@@ -169,6 +173,9 @@ function mainFunc(){
 
   if($('#cri_chk').is(":checked")){    
   }else{ cri_dmg = 0;}
+
+  if($('#nahida_cri_chk').is(":checked")){    
+  }else{ nahida_crit_dmg = 0;}
   
   var base_dmg = atk_p * (tal_a/100);
   var res_multiplier = 1;
@@ -187,7 +194,10 @@ function mainFunc(){
   var dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
   var s_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+s_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
   var a_dmg = ((base_dmg*(1+spec_mul/100))+flat_dmg_b+a_flat_dmg_b)*(1+((dmg_b+ele_b)/100)-e_dmg_red/100)*def_multiplier*res_multiplier*(1+cri_dmg/100);
-  var subbloom_dmg = 3 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier;
+
+  var bloom_dmg = 2 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + nahida_crit_dmg/100);
+  var subbloom_dmg = 3 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b/100) * res_multiplier * (1 + nahida_crit_dmg/100);
+  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier * (1 + nahida_crit_dmg/100);
   
   amplifying(em_mas,re_b,dmg);
   overloaded(em_mas,level_multiplier[cha_lv],re_b/100,res_multiplier);
@@ -199,25 +209,21 @@ function mainFunc(){
   document.getElementById("normal").innerHTML = dmg.toFixed(0);
 
   // Burning
-  var burning_dmg = 0.25 * level_multiplier[cha_lv] * (1 + ((16 * em_mas) / (2000 + em_mas)) + re_b) * res_multiplier;
   document.getElementById("burn").innerHTML = burning_dmg.toFixed(0);
   
+  // additive reactions
   document.getElementById("spread").innerHTML = s_dmg.toFixed(0);
   document.getElementById("aggravate").innerHTML = a_dmg.toFixed(0);
+
+  // bloom
+  document.getElementById("bloom").innerHTML = bloom_dmg.toFixed(0);
   document.getElementById("hyperbloom").innerHTML = subbloom_dmg.toFixed(0);
   document.getElementById("burgeon").innerHTML = subbloom_dmg.toFixed(0);
 }
 
-function chknum(id,pc){
+function chknum(id,min,pc){
   var chk = $("#"+id).val();
-  if (isNaN(chk) || chk<1) {
-    $("#"+id).val(pc);    
-  }
-}
-
-function chkcri(id,pc){
-  var chk = $("#"+id).val();
-  if (isNaN(chk) || chk<50) {
+  if (isNaN(chk) || chk<min) {
     $("#"+id).val(pc);    
   }
 }
@@ -241,7 +247,6 @@ function overloaded(em,level_multiplier,react_bonus,res_multiplier){
   //Overloaded
   var dmg = 2 * level_multiplier * (1 + ((16 * em) / (2000 + em)) + react_bonus) * res_multiplier;
   document.getElementById("overl").innerHTML = dmg.toFixed(0);
-  document.getElementById("bloom").innerHTML = dmg.toFixed(0);
 }
 
 function elecha(em,level_multiplier,react_bonus,res_multiplier){

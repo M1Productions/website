@@ -152,6 +152,16 @@ small{
     1px 1px 0 #a26d1f;
 }
 
+.crystallize{
+  color: #fd9905;
+  font-size: 24px;
+  text-shadow: 
+    -1px -1px 0 #a26d1f,
+    1px -1px 0 #a26d1f,
+    -1px 1px 0 #a26d1f,
+    1px 1px 0 #a26d1f;
+}
+
 .fire{
   color: #ff9c00;
 }
@@ -167,4 +177,8 @@ small{
 
 .dendro{
   color: #00ea52;
+}
+
+.geo{
+  color: #fd9905;
 }
